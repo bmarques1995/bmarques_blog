@@ -1,0 +1,71 @@
+---
+title: 'CMake for C/C++'
+publishedAt: '2024-12-19'
+summary: 'Build a C/C++ program can be tricky, you must configure makefiles for the project for unix systems or visual studio projects. How about delegate this task to CMake?'
+---
+
+## Building a C++ program
+
+Consider that you must (or would like) build a C++ program, the steps tend to be easy, only create a `.cpp` file, create the main function, and call the program, like this:
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    std::cout << "Hello C++" << std::endl;
+    return 0;
+}
+```
+
+The program is simple and will be run easily with:
+
+`g++ -o sample sample.cpp`
+
+So, here we have a small C++ program, and I can handle C++ projects, right?
+
+Take it easy, my dear, I have two questions:
+
+- How do you handle this project on Windows?
+- How do you manage dependencies and include directories?
+
+As long as the codebase grows, managing dependencies becomes harder, especially for importing new libraries.
+And how do we solve this?
+
+## Cross Platform Makefile Generator
+
+The Cross Platform Makefile Generator or CMake, is a middleware to generate C/C++ project files, it easily generates and manages C++ projects for:
+
+- Visual Studio
+- Ninja
+- Unix Makefiles
+- NMake Makefiles
+- XCode projects
+- Others
+
+It also manages libraries, compiling and linking them, making dependency management much easier.
+Here is a sample CMake config.
+
+```cmake
+cmake_minimum_required(VERSION 3.12)
+
+project(Sample)
+
+add_executable(Sample sample.cpp)
+```
+
+## Conclusion
+
+CMake is a useful set to configure and compile a lot of C++ projects, between operating systems and config files, with a lot of famous cross-platform projects configured with it:
+
+- Qt
+- MySQL
+- MySQL Connector
+- Vulkan
+- SDL
+- DuckStation
+- PCSX2
+- Freetype
+- WxWidgets
+
+So, if you are thinking in start to learn C/C++, consider using cmake to manage your projects.
